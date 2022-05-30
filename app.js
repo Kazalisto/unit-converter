@@ -3,10 +3,11 @@
 //Set the variable initial number V
 //Display initial number to result
 
-let initialNumber = document.getElementById('initial-number').innerText = 20
 let lengthResult = document.getElementById('length-result')
 let volumeResult = document.getElementById('volume-result')
 let massResult = document.getElementById('mass-result')
+let inputEl = document.getElementById('input-el')
+let btn = document.getElementById('btn')
 
 let meter = 3.28084
 let feet = 0.3048
@@ -15,50 +16,19 @@ let gallon = 3.785411784
 let kilo = 2.20462
 let pound = 0.453592
 
-function meterAndFeet(){
-    let metterToFeet = 1 * meter
-    let feetToMetter = 1 * feet
+btn.addEventListener('click', ()=> {
+    let meterToFeet = inputEl.value * meter
+    let feetToMetter = inputEl.value * feet
+    lengthResult.innerText = inputEl.value + " meters = " +  meterToFeet.toFixed(3) + " feet ||" +" " + inputEl.value + " feet = " + feetToMetter.toFixed(3) + " meters" 
 
-    let resToFeet = initialNumber * meter
-    let resToMeter = initialNumber * feet
+    let litreToGallon = inputEl.value * litre
+    let gallonToLitre = inputEl.value * gallon
+    volumeResult.innerText = inputEl.value + " litres = " +  litreToGallon.toFixed(3) + " gallons ||" +" " + inputEl.value + " gallons = " + gallonToLitre.toFixed(3) + " litres"
     
-    
-    lengthResult.innerText = initialNumber + " meters = " + resToFeet.toFixed(3) + " feet" + " |" +
-            initialNumber + " feet = " + resToMeter.toFixed(3) + " meters" 
-    
-}
+    let kiloToPound = inputEl.value * kilo
+    let poundToKilo = inputEl.value * pound
+    massResult.innerText = inputEl.value + " kilos = " +  kiloToPound.toFixed(3) + " pounds ||" +" " + inputEl.value + " pounds = " + poundToKilo.toFixed(3) + " kilos"
 
-function literAndGallon(){
-    let litreToGallon = 1 * litre
-    let gallonToLitre = 1 * gallon
+})
+    
 
-    let resToGallon = initialNumber * litreToGallon
-    let resToLitre = initialNumber * gallonToLitre
-    
-  
-    
-    volumeResult.innerText = initialNumber + " litres = " + resToGallon.toFixed(3) + " gallons " + " |" +
-            initialNumber + " gallons = " + resToLitre.toFixed(3) + " litres"
-    
-}
-
-
-function massAndKilo(){
-    let kiloToPound = 1 * kilo
-    let poundToKilo = 1 * pound
-
-    let resToPound = initialNumber * kiloToPound
-    let resToKilo = initialNumber * poundToKilo
-    
-    
-    
-    
-    massResult.innerText = initialNumber + " kilos = " + resToPound.toFixed(3) + " pounds " + " | " + 
-            initialNumber + " pounds = " + resToKilo.toFixed(3) + " kilos"
-    
-}
-
-
-meterAndFeet()
-literAndGallon()
-massAndKilo()
